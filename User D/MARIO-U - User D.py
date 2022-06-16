@@ -473,8 +473,9 @@ for user in params['User']['Values']:
                                 print(counter)
                                 
         
+                                Res.to_excel('Results/All_results_{counter}.xlsx')
+        
                                 counter += 1
                             
-                                Res.to_excel('Results/All_results.xlsx')
 
             
