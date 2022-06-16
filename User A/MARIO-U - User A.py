@@ -13,8 +13,6 @@ from datetime import datetime
 import copy
 import cvxpy as cv
 import numpy as np
-# from plotly.subplotslots import make_subplots
-# import plotly.graph_objects as go
 
 
 #%% Importing parameters
@@ -46,7 +44,7 @@ MuInd = pd.MultiIndex.from_product([params['User']['Values'],
                                     params['BEV incentives']['Values'],
                                     params['BEV capacity']['Values'], 
                                     params['Gasoline Price']['Values']],
-                                   names= ['User','Location','Yearly mileage','Time Horizon',
+                                    names=['User','Location','Yearly mileage','Time Horizon',
                                            'Electricity price',' BEV Incentives','BEV capacity', 'Gasoline Price'])
 
 
