@@ -4,13 +4,15 @@ from plotly.subplots import make_subplots
 import pandas as pd
 import copy 
 
+#%% Figure 3 - BEV preferability
+
 df = pd.read_excel('Final.xlsx')
 df = df.fillna(method='ffill', axis=0)
 
 df = df.sort_values(['Yearly mileage','Time Horizon'],ascending=[True,True])
 df['Gasoline Price'] = df['Gasoline Price'].map({0.0756:1.4, 0.0864:1.6, 0.0972:1.8, 0.108:2, 0.1188:2.2})
 
-#%% Figure 3 - BEV preferability
+
 df_bevp = df.loc[:,['User','Location','Yearly mileage','Time Horizon','Electricity price','Gasoline Price',' BEV Incentives','PV installation','BEV installation','Total Cost [€]','Total emissions [KgCO2e]']]
 df_bevp.columns = ['House size', 'Solar radiation', 'Annual travelled distance','Ownership time', 'National grid electricity price', 'National gasoline price', 'BEV purchase subsidies','PV capacity','BEV installation', 'NPC', 'CO2']
 
@@ -99,7 +101,7 @@ fig.update_layout(
     # legend=dict(x=0.5,y=-0.1,xanchor='center',yanchor='top',orientation='h'),
     yaxis_range=[-0.05,1.05],
     )
-fig.update_xaxes(type='category')
+fig.update_xaxes(type='category',title='Values codes')
 
 fig.write_html("plots\Figure 3 - BEVp.html",auto_open=True)
 
